@@ -55,7 +55,7 @@ public class App {
         Thread.sleep(10000);
 
         // assert that the message sent is displayed
-        assertEquals(webDriver.findElement(By.id("response")).getText(), "Meaassage Sent");
+        assertEquals(webDriver.findElement(By.id("response")).getText(), "Message Sent");
         System.out.println("Assertion Passed");
 
         File file = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
