@@ -21,7 +21,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class App {
     public static void main(String[] args) throws InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver",
-                "/usr/bin/chromedriver");
+                "/usr/local/bin/chromedriver");
         System.out.println("Chrome driver path set");
 
         ChromeOptions chromeOptions = new ChromeOptions();
