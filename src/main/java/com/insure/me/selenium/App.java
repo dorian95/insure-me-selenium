@@ -26,6 +26,8 @@ public class App {
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        chromeOptions.addArguments("--no-sandbox");
 
         WebDriver webDriver = new ChromeDriver(chromeOptions);
         webDriver.get("http://ec2-3-99-222-73.ca-central-1.compute.amazonaws.com:8080/contact.html");
