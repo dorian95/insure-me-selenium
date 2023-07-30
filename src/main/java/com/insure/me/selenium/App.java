@@ -31,7 +31,7 @@ public class App {
         chromeOptions.addArguments("--remote-allow-origins=*");
 
         WebDriver webDriver = new ChromeDriver(chromeOptions);
-        webDriver.get("http://ec2-3-99-222-73.ca-central-1.compute.amazonaws.com:8080/contact.html");
+        webDriver.get("ip-172-31-1-159.ca-central-1.compute.internal:8080/contact.html");
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         webDriver.findElement(By.id("inputName"))
