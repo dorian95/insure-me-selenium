@@ -19,50 +19,53 @@ import org.openqa.selenium.chrome.ChromeOptions;
  *
  */
 public class App {
-    public static void main(String[] args) throws InterruptedException, IOException {
-        System.setProperty("webdriver.chrome.driver",
-                "/usr/local/bin/chromedriver");
-        System.out.println("Chrome driver path set");
+        public static void main(String[] args) throws InterruptedException, IOException {
+                System.setProperty("webdriver.chrome.driver",
+                                "/usr/local/bin/chromedriver");
+                System.out.println("Chrome driver path set");
 
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--remote-allow-origins=*");
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--remote-allow-origins=*");
 
-        WebDriver webDriver = new ChromeDriver(chromeOptions);
-        webDriver.get("http://ip-172-31-1-159.ca-central-1.compute.internal:8080/contact.html");
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+                WebDriver webDriver = new ChromeDriver(chromeOptions);
 
-        webDriver.findElement(By.id("inputName"))
-                .sendKeys("Vamsi");
-        Thread.sleep(1000);
+                String url = "http://ip-172-31-1-159.ca-central-1.compute.internal:8080/contact.html";
+                System.out.println("URL set :" + url);
+                webDriver.get(url);
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        webDriver.findElement(By.id("inputNumber"))
-                .sendKeys(("9876543219"));
-        Thread.sleep(1000);
+                webDriver.findElement(By.id("inputName"))
+                                .sendKeys("Vamsi");
+                Thread.sleep(1000);
 
-        webDriver.findElement(By.id("inputMail"))
-                .sendKeys(("bhagivamsi@gmail.com"));
-        Thread.sleep(1000);
+                webDriver.findElement(By.id("inputNumber"))
+                                .sendKeys(("9876543219"));
+                Thread.sleep(1000);
 
-        webDriver.findElement(By.id("inputMessage"))
-                .sendKeys(("Hello from Selenium test"));
-        Thread.sleep(1000);
+                webDriver.findElement(By.id("inputMail"))
+                                .sendKeys(("bhagivamsi@gmail.com"));
+                Thread.sleep(1000);
 
-        webDriver.findElement(By.id("my-button")).click();
+                webDriver.findElement(By.id("inputMessage"))
+                                .sendKeys(("Hello from Selenium test"));
+                Thread.sleep(1000);
 
-        Thread.sleep(10000);
+                webDriver.findElement(By.id("my-button")).click();
 
-        // assert that the message sent is displayed
-        assertEquals(webDriver.findElement(By.id("response")).getText(), "Message Sent");
-        System.out.println("Assertion Passed");
+                Thread.sleep(10000);
 
-        File file = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
-        File destFile = new File("screenshot.png");
-        FileUtils.copyFile(file, destFile);
-        System.out.println("Taking screenshot");
-        System.out.println("Screenshot stored at " + destFile.getAbsolutePath());
-        webDriver.quit();
-    }
+                // assert that the message sent is displayed
+                assertEquals(webDriver.findElement(By.id("response")).getText(), "Message Sent");
+                System.out.println("Assertion Passed");
+
+                File file = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
+                File destFile = new File("screenshot.png");
+                FileUtils.copyFile(file, destFile);
+                System.out.println("Taking screenshot");
+                System.out.println("Screenshot stored at " + destFile.getAbsolutePath());
+                webDriver.quit();
+        }
 }
