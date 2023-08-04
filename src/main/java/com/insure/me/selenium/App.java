@@ -32,7 +32,7 @@ public class App {
 
                 WebDriver webDriver = new ChromeDriver(chromeOptions);
 
-                String url = "http://ip-172-31-1-159.ca-central-1.compute.internal:8080/contact.html";
+                String url = "http://ip-172-31-31-65.us-west-2.compute.internal:8080/contact.html";
                 System.out.println("URL set :" + url);
                 webDriver.get(url);
                 webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -46,7 +46,7 @@ public class App {
                 Thread.sleep(1000);
 
                 webDriver.findElement(By.id("inputMail"))
-                                .sendKeys(("bhagivamsi@gmail.com"));
+                                .sendKeys(("nursultan_irgaliyev@gmail.com"));
                 Thread.sleep(1000);
 
                 webDriver.findElement(By.id("inputMessage"))
