@@ -32,17 +32,17 @@ public class App {
 
                 WebDriver webDriver = new ChromeDriver(chromeOptions);
 
-                String url = "http://ip-172-31-31-65.us-west-2.compute.internal:8080/contact.html";
+                String url = "http://54.202.47.150:8080/contact.html";
                 System.out.println("URL set :" + url);
                 webDriver.get(url);
                 webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
                 webDriver.findElement(By.id("inputName"))
-                                .sendKeys("Vamsi");
+                                .sendKeys("Nursultan");
                 Thread.sleep(1000);
 
                 webDriver.findElement(By.id("inputNumber"))
-                                .sendKeys(("9876543219"));
+                                .sendKeys(("8135027563"));
                 Thread.sleep(1000);
 
                 webDriver.findElement(By.id("inputMail"))
