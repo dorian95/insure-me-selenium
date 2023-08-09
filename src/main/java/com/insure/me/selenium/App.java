@@ -32,7 +32,7 @@ public class App {
 
                 WebDriver webDriver = new ChromeDriver(chromeOptions);
 
-                String url = "http://54.202.47.150:8080/contact.html";
+                String url = "http://54.201.126.224:8080/contact.html";
                 System.out.println("URL set :" + url);
                 webDriver.get(url);
                 webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
